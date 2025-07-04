@@ -1,0 +1,164 @@
+/* style.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif; /* Default body font */
+    background-color: #F5F7FA; /* Mist Gray */
+    color: #333;
+    height: 100%;
+}
+
+.app-shell {
+    display: grid;
+    grid-template-columns: 240px 1fr auto; /* Sidebar, Main, Right Panel */
+    grid-template-rows: 60px 1fr; /* TopNav, Content Row */
+    grid-template-areas:
+        "sidenav topnav topnav"
+        "sidenav main rightpanel";
+    height: 100vh;
+    overflow: hidden; /* Prevent scrollbars on the shell itself */
+}
+
+/* Top Navigation Bar */
+.top-nav {
+    grid-area: topnav;
+    background-color: #354F7C; /* Deep Horizon Blue */
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000; /* Keep on top */
+}
+
+.top-nav .logo {
+    font-family: 'Poppins', sans-serif; /* Heading font */
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-right: auto; /* Pushes other items to the right */
+}
+
+.top-nav .search-bar {
+    margin: 0 20px;
+}
+
+.top-nav .search-bar input {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.top-nav .nav-actions {
+    display: flex;
+    align-items: center;
+}
+
+.top-nav .nav-actions > * {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.top-nav .quick-add-btn {
+    background-color: #FF6B6B; /* Soft Coral */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2em;
+    line-height: 30px;
+    text-align: center;
+}
+
+/* Left Sidebar */
+.left-sidebar {
+    grid-area: sidenav;
+    background-color: #e9edf0; /* Lighter shade for sidebar */
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto; /* Scroll if content exceeds height */
+}
+
+.left-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-sidebar li {
+    padding: 10px 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif; /* Heading font for items */
+    font-size: 0.95em;
+}
+
+.left-sidebar li:hover {
+    background-color: #dce3e8;
+}
+
+/* Main View Area */
+.main-view {
+    grid-area: main;
+    background-color: #F5F7FA; /* Mist Gray */
+    padding: 20px;
+    overflow-y: auto; /* Scroll if content exceeds height */
+}
+
+.main-view h1 {
+    font-family: 'Poppins', sans-serif; /* Heading font */
+    color: #354F7C; /* Deep Horizon Blue */
+}
+
+/* Right Panel (Collapsible) */
+.right-panel {
+    grid-area: rightpanel;
+    background-color: #ffffff;
+    padding: 20px;
+    border-left: 1px solid #ddd;
+    width: 300px; /* Default width */
+    overflow-y: auto; /* Scroll if content exceeds height */
+    /* Basic styling for now, collapse functionality later */
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif; /* Default heading font */
+}
+
+p, span, div, input, textarea, button, li, a {
+    font-family: 'Open Sans', sans-serif; /* Default body font */
+}
+
+/* Monospace for code/logs - to be applied with a class */
+.code-block, .log-entry {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Responsive adjustments (very basic for now) */
+@media (max-width: 768px) {
+    .app-shell {
+        grid-template-columns: 1fr; /* Stack elements */
+        grid-template-rows: auto auto 1fr auto; /* TopNav, Sidebar, Main, RightPanel */
+        grid-template-areas:
+            "topnav"
+            "sidenav"
+            "main"
+            "rightpanel";
+    }
+
+    .left-sidebar, .right-panel {
+        width: 100%;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .top-nav .logo {
+        font-size: 1.2em;
+    }
+    .top-nav .search-bar {
+        display: none; /* Hide search bar on small screens for simplicity */
+    }
+}
