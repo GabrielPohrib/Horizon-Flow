@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* You can add global styles here if needed, below the Tailwind directives */
+body {
+  font-family: theme('fontFamily.body'); /* Example of using Tailwind theme for body font */
+  background-color: theme('colors.mist-gray');
+}
